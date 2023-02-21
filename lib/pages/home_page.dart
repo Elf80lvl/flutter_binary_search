@@ -46,7 +46,7 @@ class _HomePageState extends State<HomePage> {
   }
 
   void _addHistory() {
-    _history.add('guess: $guess, answer: $answer. New range: $low-$high');
+    _history.add('guess: $guess | answer: $answer | new range: $low-$high');
   }
 
   void _showAnswer() {
@@ -109,7 +109,7 @@ class _HomePageState extends State<HomePage> {
                 height: 16.0,
               ),
               Text(
-                'Think about a number between 1 and ${maxRange}, my guess:',
+                'Think of a number between 1 and $maxRange, my guess:',
                 style: const TextStyle(
                   fontSize: 18,
                 ),
@@ -117,7 +117,7 @@ class _HomePageState extends State<HomePage> {
               Text(
                 '$guess',
                 style: const TextStyle(
-                  fontSize: 24,
+                  fontSize: 26,
                   fontWeight: FontWeight.bold,
                 ),
               ),
@@ -182,7 +182,10 @@ class _HomePageState extends State<HomePage> {
         onPressed: () {
           _restart();
         },
-        child: const Icon(Icons.refresh),
+        child: const Icon(
+          Icons.refresh,
+          color: Colors.white,
+        ),
       ),
     );
   }
