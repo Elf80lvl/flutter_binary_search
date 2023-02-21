@@ -15,7 +15,7 @@ class _HomePageState extends State<HomePage> {
   late var high;
   late var guess;
   late var mid;
-  //int maxRange = 100;
+  late int maxRange;
 
   List _history = [];
   String answer = '';
@@ -30,6 +30,7 @@ class _HomePageState extends State<HomePage> {
     high = list.last;
     guess = (low + high) ~/ 2;
     //mid = (low + high) / 2;
+    maxRange = widget.maxRange ?? 100;
     setState(() {});
   }
 
@@ -56,26 +57,26 @@ class _HomePageState extends State<HomePage> {
   }
 
   _clickLess() {
-    if (guess >= widget.maxRange || guess <= 1) {
+    if (guess >= maxRange || guess <= 1) {
       return;
     }
     _count++;
     answer = 'less';
     high = guess - 1;
-    guess = (low + high) ~/ 2;
     _addHistory();
+    guess = (low + high) ~/ 2;
     setState(() {});
   }
 
   _clickMore() {
-    if (guess >= widget.maxRange || guess <= 1) {
+    if (guess >= maxRange || guess <= 1) {
       return;
     }
     _count++;
     answer = 'more';
     low = guess + 1;
-    guess = (low + high) ~/ 2;
     _addHistory();
+    guess = (low + high) ~/ 2;
     setState(() {});
   }
 
@@ -108,7 +109,7 @@ class _HomePageState extends State<HomePage> {
                 height: 16.0,
               ),
               Text(
-                'Think about a number between 1 and ${widget.maxRange}, my guess:',
+                'Think about a number between 1 and ${maxRange}, my guess:',
                 style: const TextStyle(
                   fontSize: 18,
                 ),
