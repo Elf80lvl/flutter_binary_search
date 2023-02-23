@@ -14,7 +14,6 @@ class _HomePageState extends State<HomePage> {
   late var low;
   late var high;
   late var guess;
-  late var mid;
   late int maxRange;
 
   List _history = [];
